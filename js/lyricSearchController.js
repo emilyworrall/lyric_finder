@@ -1,0 +1,3 @@
+lyricSearch.controller('LyricSearchController', [function() {
+
+}]);
