@@ -8,6 +8,8 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/lyricSearchController.js"></script>
+
   </head>
 
   <body ng-controller="LyricSearchController as searchCtrl">
@@ -15,12 +17,12 @@
       <h2>Lyrical</h2>
       <form class="form-horizontal">
         <input type="text" placeholder="Find lyrics">
-        <button class="btn">Search</button>
+        <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
       </br>
       <ul class="list-group">
-        <li class="list-group-item">
-          link to track lyrics | track artist
+        <li ng-repeat="track in searchCtrl.searchResult.items" class="list-group-item">
+          {{track.track_name}} <b>{{track.artist_name}}</b>
         </li>
       </ul>
     </div>

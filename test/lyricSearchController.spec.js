@@ -7,8 +7,19 @@ describe('LyricSearchController', function() {
     ctrl = $controller('LyricSearchController');
   }));
 
-  it('initialises with an empty search result and term', function() {
-    expect(ctrl.searchResult).toBeUndefined();
-    expect(ctrl.searchTerm).toBeUndefined();
+  describe('when searching for a song', function() {
+
+    var items = [
+      {
+        "track_name": "Love Yourself",
+        "artist_name": "Justin Bieber"
+      }
+    ];
+
+    it('displays search results', function() {
+      ctrl.searchTerm = 'hello';
+      ctrl.doSearch();
+      expect(ctrl.searchResult.items).toEqual(items);
+    });
   });
 });
