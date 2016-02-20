@@ -7,7 +7,7 @@ lyricSearch.controller('LyricSearchController', ['Search', function(Search) {
        .then(function(response) {
          self.searchResult = response.data.message.body.track_list;
          console.log(self.searchResult);
-    });
+       });
   };
 
 }]);

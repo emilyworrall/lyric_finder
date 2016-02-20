@@ -25,7 +25,7 @@
         <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
       </br>
-      <ul class="list-group">
+      <ul class="list-group" ng-show="searchCtrl.searchTerm">
         <li ng-repeat="item in searchCtrl.searchResult" class="list-group-item">
           {{item.track.track_name}} <b>{{item.track.artist_name}}</b>
         </li>
