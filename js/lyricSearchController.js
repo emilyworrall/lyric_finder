@@ -6,7 +6,6 @@ lyricSearch.controller('LyricSearchController', ['Search', function(Search) {
     Search.query(self.searchTerm)
        .then(function(response) {
          self.searchResult = response.data.message.body.track_list;
-         console.log(self.searchResult);
        });
   };
 

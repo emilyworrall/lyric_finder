@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Lyrical</title>
+    <link href='https://fonts.googleapis.com/css?family=Homemade+Apple' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/style.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -15,21 +18,23 @@
   </head>
 
   <body ng-controller="LyricSearchController as searchCtrl">
-    <div>
+    <header>
       <h2>Lyrical</h2>
+      </br>
       <form class="form-horizontal">
         <input type="text" ng-model="searchCtrl.searchTerm"
                            ng-change="searchCtrl.doSearch()"
                            ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }"
                            placeholder="Find lyrics">
-        <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
+        <button id="search" class="btn" ng-click="searchCtrl.doSearch()"><b>Search</b></button>
       </form>
-      </br>
-      <ul class="list-group" ng-show="searchCtrl.searchTerm">
-        <li ng-repeat="item in searchCtrl.searchResult" class="list-group-item">
-          {{item.track.track_name}} <b>{{item.track.artist_name}}</b>
-        </li>
-      </ul>
-    </div>
+    </header
+    </br>
+    <ul class="list-group" ng-show="searchCtrl.searchTerm">
+      <li ng-repeat="item in searchCtrl.searchResult" class="list-group-item">
+        <img ng-src="{{item.track.album_coverart_100x100}}">
+        {{item.track.track_name}} <b>{{item.track.artist_name}}</b>
+      </li>
+    </ul>
   </body>
 </html>
