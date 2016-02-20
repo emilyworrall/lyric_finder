@@ -8,6 +8,9 @@ lyricSearch.factory('Search', ['$http', function($http) {
         method: 'GET',
         params: {
           'q': searchTerm,
+          'f_has_lyrics': 1,
+          's_track_rating': 'DESC',
+          'page_size': 30,
           'apikey': musixmatchToken
         }
       });
