@@ -1,16 +1,13 @@
-lyricSearch.controller('LyricSearchController', [function() {
+lyricSearch.controller('LyricSearchController', ['Search', function(Search) {
   var self = this;
 
 
   self.doSearch = function() {
-    self.searchResult = {
-      "items": [
-        {
-          "track_name": "Love Yourself",
-          "artist_name": "Justin Bieber"
-        }
-      ]
-    };
+    Search.query(self.searchTerm)
+       .then(function(response) {
+         self.searchResult = response.data.message.body.track_list;
+         console.log(self.searchResult);
+    });
   };
 
 }]);
